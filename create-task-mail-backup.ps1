@@ -1,4 +1,4 @@
-
+Write-Output "Inizio..."
 # Set Name of Task
 [string]$TaskName = "Send Mail Backup Success"
 
