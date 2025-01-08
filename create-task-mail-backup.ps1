@@ -1,4 +1,4 @@
-﻿#Set Name of Task
+﻿# Set Name of Task
 [String]$TaskName = "Send Mail Backup Success"
 
 # Path ps1
@@ -22,7 +22,7 @@ $Prin = New-ScheduledTaskPrincipal -UserId "SYSTEM" -RunLevel Highest
 # Stop Task if runs more than 60 minutes
 $Timeout = (New-TimeSpan -Minutes 60)
 
-#Other Settings on the Task
+# Other Settings on the Task
 $settings = New-ScheduledTaskSettingsSet -RunOnlyIfNetworkAvailable -StartWhenAvailable -DontStopIfGoingOnBatteries -ExecutionTimeLimit $Timeout
 $settings.CimInstanceProperties.Item('MultipleInstances').Value = 3 # 3 corrsponds to 'Stop the existig instance'
 
