@@ -1,5 +1,5 @@
 ﻿# Set Name of Task
-[String]$TaskName = "Send Mail Backup Success"
+$TaskName = "Send Mail Backup Success"
 
 # Path ps1
 $PSCommand = 'iex (irm https://github.com/Atlas2590/script-command/send-mail-success.ps1)'
