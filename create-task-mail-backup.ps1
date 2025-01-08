@@ -1,4 +1,5 @@
-﻿# Set Name of Task
+
+# Set Name of Task
 [string]$TaskName = "Send Mail Backup Success"
 
 # Path ps1
