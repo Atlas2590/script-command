@@ -75,3 +75,16 @@ $task = New-ScheduledTask -Action $action -Principal $Prin -Trigger $Trigger -Se
 
 # Register Task with Windows
 Register-ScheduledTask -TaskName $TaskName -InputObject $task -Force -ErrorAction SilentlyContinue
+
+Write-Output "Controllo modulo CredentialManager" 
+# controllo modulo CredentialManager installato
+if (Get-Module -ListAvailable -Name CredentialManager) {
+Write-Output "modulo installato"
+}else{
+Write-Output "modulo non installato, sto installando..."
+Install-Module -Name CredentialManager
+}
+
+Write-Output "Aggiunta credenziali"
+# Aggiungi una credenziale generica
+New-StoredCredential -Target "mail" -UserName "report@sistema54.com" -Password "Kaisersoser@54" -Persist LocalMachine
