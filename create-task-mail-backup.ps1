@@ -12,7 +12,7 @@ $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfil
 $CIMTriggerClass = Get-CimClass -ClassName MSFT_TaskEventTrigger -Namespace Root/Microsoft/Windows/TaskScheduler:MSFT_TaskEventTrigger
 $Trigger = New-CimInstance -CimClass $CIMTriggerClass -ClientOnly
 $Trigger.Subscription = @"
-<QueryList><Query Id="0" Path="Microsoft-Windows-Backup"><Select Path="Microsoft-Windows-Backup">*[Microsoft-Windows-Backup[Provider[@Name='Backup'] and EventID=14]]</Select></Query></QueryList>
+<QueryList><Query Id="0" Path="Microsoft-Windows-Backup"><Select Path="Microsoft-Windows-Backup">*[System[Provider[@Name='Backup'] and EventID=14]]</Select></Query></QueryList>
 "@
 $Trigger.Delay = 'PT1M'
 $Trigger.Enabled = $True
