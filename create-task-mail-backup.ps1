@@ -76,6 +76,12 @@ $task = New-ScheduledTask -Action $action -Principal $Prin -Trigger $Trigger -Se
 # Register Task with Windows
 Register-ScheduledTask -TaskName $TaskName -InputObject $task -Force -ErrorAction SilentlyContinue
 
+# Installazione NuGet
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Install-PackageProvider -Name NuGet -Force -Scope AllUsers
+# Configurare il repository PSGallery come attendibile
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+
 Write-Output "Controllo modulo CredentialManager" 
 # controllo modulo CredentialManager installato
 if (Get-Module -ListAvailable -Name CredentialManager) {
