@@ -82,7 +82,7 @@ if (Get-Module -ListAvailable -Name CredentialManager) {
 Write-Output "modulo installato"
 }else{
 Write-Output "modulo non installato, sto installando..."
-Install-Module -Name CredentialManager
+Install-Module -Name CredentialManager -Force -AllowClobber -Scope AllUsers
 }
 
 Write-Output "Aggiunta credenziali"
