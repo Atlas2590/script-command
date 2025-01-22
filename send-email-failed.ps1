@@ -1,7 +1,7 @@
-# RECUPERA IL NOME DELLA SCUOLA DALL'UNITA' ORGANIZZATIVA PADRE
+
 $OU = Get-ADOrganizationalUnit -Filter 'Name -notlike "Domain Controllers"' -SearchScope OneLevel
 $NomeOU = $OU.Name
-
+# RECUPERA IL NOME DELLA SCUOLA DALL'UNITA' ORGANIZZATIVA PADRE
 
 #RECUPERA LE CREDENZIALI DI ACCESSO
 Import-Module CredentialManager
