@@ -6,7 +6,7 @@ Write-Output "Inizio..."
 $PSCommand = 'iex (irm https://raw.githubusercontent.com/Atlas2590/script-command/refs/heads/main/send-email-success.ps1)'
 
 # Action to Trigger:
-$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -WindowStyle Hidden -ep bypass -command `"$PSCommand`""
+$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ep bypass -command `"$PSCommand`""
 
 # Trigger on Event
 $CIMTriggerClass = Get-CimClass -ClassName MSFT_TaskEventTrigger -Namespace Root/Microsoft/Windows/TaskScheduler:MSFT_TaskEventTrigger
