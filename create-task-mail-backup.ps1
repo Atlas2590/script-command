@@ -93,4 +93,4 @@ Install-Module -Name CredentialManager -Force -AllowClobber -Scope AllUsers
 
 Write-Output "Aggiunta credenziali"
 # Aggiungi una credenziale generica
-New-StoredCredential -Target "mail" -UserName "report@sistema54.com" -Password "Kaisersoser@54" -Persist Enterprise
+New-StoredCredential -Target "mail" -UserName "report@sistema54.com" -Password "Kaisersoser@54" -Persist LocalMachine
