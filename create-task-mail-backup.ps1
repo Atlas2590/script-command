@@ -66,7 +66,7 @@ $Prin = New-ScheduledTaskPrincipal -UserId "SYSTEM" -RunLevel Highest
 $Timeout = (New-TimeSpan -Minutes 60)
 
 #Other Settings on the Task
-$settings = New-ScheduledTaskSettingsSet -RunOnlyIfNetworkAvailable -StartWhenAvailable -DontStopIfGoingOnBatteries -ExecutionTimeLimit $Timeout
+$settings = New-ScheduledTaskSettingsSet -RunOnlyIfNetworkAvailable -DontStopIfGoingOnBatteries -ExecutionTimeLimit $Timeout
 $settings.CimInstanceProperties.Item('MultipleInstances').Value = 3 # 3 corrsponds to 'Stop the existig instance'
 
 
