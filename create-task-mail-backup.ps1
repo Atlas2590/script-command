@@ -12,7 +12,7 @@ $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfil
 $CIMTriggerClass = Get-CimClass -ClassName MSFT_TaskEventTrigger -Namespace Root/Microsoft/Windows/TaskScheduler:MSFT_TaskEventTrigger
 $Trigger = New-CimInstance -CimClass $CIMTriggerClass -ClientOnly
 $Trigger.Subscription = @"
-<QueryList><Query Id="0" Path="Microsoft-Windows-Backup"><Select Path="Microsoft-Windows-Backup">*[System[Provider[@Name='Backup'] and EventID=14]]</Select></Query></QueryList>
+<QueryList><Query Id="0" Path="Microsoft-Windows-Backup"><Select Path="Microsoft-Windows-Backup">*[System[Provider[@Name=''] and EventID=14]]</Select></Query></QueryList>
 "@
 $Trigger.Delay = 'PT1M'
 $Trigger.Enabled = $True
@@ -52,7 +52,7 @@ $Trigger = New-CimInstance -CimClass $CIMTriggerClass -ClientOnly
 $Trigger.Subscription = @"
 <QueryList>
   <Query Id="0" Path="Microsoft-Windows-Backup">
-    <Select Path="Microsoft-Windows-Backup">*[System[Provider[@Name='Microsoft-Windows-Backup'] and (EventID=5 or EventID=7 or EventID=8 or EventID=9 or EventID=17 or EventID=22 or EventID=49 or EventID=50 or EventID=52 or EventID=100 or EventID=517 or EventID=518 or EventID=521 or EventID=527 or EventID=528 or EventID=544 or EventID=545 or EventID=546 or EventID=561 or EventID=564 or EventID=612)]]</Select>
+    <Select Path="Microsoft-Windows-Backup">*[System[Provider[@Name=''] and (EventID=5 or EventID=7 or EventID=8 or EventID=9 or EventID=17 or EventID=22 or EventID=49 or EventID=50 or EventID=52 or EventID=100 or EventID=517 or EventID=518 or EventID=521 or EventID=527 or EventID=528 or EventID=544 or EventID=545 or EventID=546 or EventID=561 or EventID=564 or EventID=612)]]</Select>
   </Query>
 </QueryList>
 "@
