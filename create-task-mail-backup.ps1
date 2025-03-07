@@ -14,7 +14,7 @@ $Trigger = New-CimInstance -CimClass $CIMTriggerClass -ClientOnly
 $Trigger.Subscription = @"
 <QueryList><Query Id="0" Path="Microsoft-Windows-Backup"><Select Path="Microsoft-Windows-Backup">*[System[Provider[@Name=''] and EventID=14]]</Select></Query></QueryList>
 "@
-$Trigger.Delay = 'PT1M'
+#$Trigger.Delay = 'PT1M'
 $Trigger.Enabled = $True
 
 # Run as System
@@ -56,7 +56,7 @@ $Trigger.Subscription = @"
   </Query>
 </QueryList>
 "@
-$Trigger.Delay = 'PT1M'
+#$Trigger.Delay = 'PT1M'
 $Trigger.Enabled = $True
 
 # Run as System
