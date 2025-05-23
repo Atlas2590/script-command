@@ -4,7 +4,7 @@ $Dominio = Read-Host "Inserisci il nome del dominio"
 
 # Estensione da installare forzatamente
 $OUPath = "DC=$Dominio,DC=local"
-$ExtensionID = "gcejgfdapijlfcapbnlipkpdedclclgl"
+$ExtensionID = "ddkjiahejlhfcafbddmgiahcphecmpfh"
 $UpdateUrl = "https://clients2.google.com/service/update2/crx"
 $keyPath = "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist"
 
