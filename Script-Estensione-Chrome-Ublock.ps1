@@ -1,4 +1,4 @@
-﻿# === CONFIGURAZIONI ===
+# === CONFIGURAZIONI ===
 $language = "it-IT"  # cambia in "en-US" se il tuo sistema è in inglese
 $downloadUrl = "https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip"
 $tempPath = "$env:TEMP\chrome_admx"
@@ -35,8 +35,9 @@ $Dominio = Read-Host "Inserisci il nome del dominio"
 # Inserire il nome del dominio
 
 # Estensione da installare forzatamente
+$GpoName = "Estensione Chrome Ublock"
 $OUPath = "DC=$Dominio,DC=local"
-$ExtensionID = "ddkjiahejlhfcafbddmgiahcphecmpfh"
+$ExtensionID = "gcejgfdapijlfcapbnlipkpdedclclgl"
 $UpdateUrl = "https://clients2.google.com/service/update2/crx"
 $keyPath = "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist"
 
@@ -62,3 +63,4 @@ Set-GPRegistryValue -Name $GpoName -Key $keyPath -ValueName "1" -Type String -Va
 Write-Host "🛠️  Estensione Chrome configurata per l'installazione forzata."
 
 Write-Host "`n✅ Completato. La GPO '$GpoName' è attiva."
+
