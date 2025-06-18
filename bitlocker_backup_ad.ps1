@@ -1,5 +1,6 @@
-# Salva chiavi di ripristino e key package BitLocker in AD
+
 $volumi = Get-BitLockerVolume
+# Salva chiavi di ripristino e key package BitLocker in AD
 
 foreach ($volume in $volumi) {
     $mountPoint = $volume.MountPoint
