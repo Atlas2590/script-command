@@ -56,6 +56,6 @@ try {
     Write-Host "Script correttamente configurato nella GPO '$GpoName'."
 
 } catch {
-    Write-Error "❌ Errore: $_"
+    Write-Error "Errore: $_"
     exit 1
 }
