@@ -24,9 +24,9 @@ try {
     # SCARICA SCRIPT SE NON ESISTE
     if (-not (Test-Path $ScriptFullPath)) {
         Invoke-WebRequest -Uri $ScriptUrl -OutFile $ScriptFullPath -UseBasicParsing -ErrorAction Stop
-        Write-Host "✔ Script scaricato: $ScriptFullPath"
+        Write-Host "Script scaricato: $ScriptFullPath"
     } else {
-        Write-Host "✔ Script già presente: $ScriptFullPath"
+        Write-Host "Script già presente: $ScriptFullPath"
     }
 
     # CREA scripts.ini SE NON ESISTE
@@ -36,7 +36,7 @@ try {
 0CmdLine=$ScriptName
 0Parameters=
 "@ | Out-File -FilePath $IniFile -Encoding ASCII
-        Write-Host "📝 File scripts.ini creato con lo script."
+        Write-Host "File scripts.ini creato con lo script."
     }
     else {
         # AGGIUNGI SCRIPT SOLO SE NON ESISTE
@@ -46,14 +46,14 @@ try {
             $newIndex = if ($indices.Count -gt 0) { ($indices | Measure-Object -Maximum).Maximum + 1 } else { 0 }
             Add-Content -Path $IniFile -Value "$newIndex`CmdLine=$ScriptName"
             Add-Content -Path $IniFile -Value "$newIndex`Parameters="
-            Write-Host "📝 Script aggiunto a scripts.ini."
+            Write-Host "Script aggiunto a scripts.ini."
         }
         else {
-            Write-Host "✔ Script già registrato in scripts.ini."
+            Write-Host "Script già registrato in scripts.ini."
         }
     }
 
-    Write-Host "✅ Script correttamente configurato nella GPO '$GpoName'."
+    Write-Host "Script correttamente configurato nella GPO '$GpoName'."
 
 } catch {
     Write-Error "❌ Errore: $_"
