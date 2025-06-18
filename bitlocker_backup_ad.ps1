@@ -23,7 +23,7 @@ foreach ($volume in $volumi) {
                 }
 
             } catch {
-                "Errore nel backup recovery key su $mountPoint: $_" | Out-File "C:\BitLocker_Backup.log" -Append
+                " Errore nel backup recovery key su $mountPoint: $_" | Out-File "C:\BitLocker_Backup.log" -Append
             }
         }
     }
