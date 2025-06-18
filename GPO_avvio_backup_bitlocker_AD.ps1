@@ -3,7 +3,6 @@ $ScriptUrl = "https://raw.githubusercontent.com/Atlas2590/script-command/main/bi
 $ScriptName = "bitlocker_backup_ad.ps1"
 $GpoName = "Default Domain Policy"
 ﻿
-
 try {
     # IMPORTA MODULO GPO
     Import-Module GroupPolicy -ErrorAction Stop
