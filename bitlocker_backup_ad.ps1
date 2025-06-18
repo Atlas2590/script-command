@@ -8,22 +8,22 @@ foreach ($volume in $volumi) {
         if ($protector.KeyProtectorType -eq "RecoveryPassword") {
             try {
                 Backup-BitLockerKeyProtector -MountPoint $mountPoint -KeyProtectorId $protector.KeyProtectorId -ErrorAction Stop
-                "✔ Backup recovery key su $mountPoint OK" | Out-File "C:\BitLocker_Backup.log" -Append
+                "Backup recovery key su $mountPoint OK" | Out-File "C:\BitLocker_Backup.log" -Append
 
                 # Backup del key package (se supportato)
                 if ($protector.KeyPackage) {
-                    "✔ Key package già incluso su $mountPoint" | Out-File "C:\BitLocker_Backup.log" -Append
+                    "Key package già incluso su $mountPoint" | Out-File "C:\BitLocker_Backup.log" -Append
                 } else {
                     try {
                         Backup-BitLockerKeyProtector -MountPoint $mountPoint -KeyProtectorId $protector.KeyProtectorId -KeyPackage -ErrorAction Stop
-                        "✔ Backup key package su $mountPoint OK" | Out-File "C:\BitLocker_Backup.log" -Append
+                        "Backup key package su $mountPoint OK" | Out-File "C:\BitLocker_Backup.log" -Append
                     } catch {
-                        "❌ Errore nel backup key package su $mountPoint: $_" | Out-File "C:\BitLocker_Backup.log" -Append
+                        "Errore nel backup key package su $mountPoint: $_" | Out-File "C:\BitLocker_Backup.log" -Append
                     }
                 }
 
             } catch {
-                "❌ Errore nel backup recovery key su $mountPoint: $_" | Out-File "C:\BitLocker_Backup.log" -Append
+                "Errore nel backup recovery key su $mountPoint: $_" | Out-File "C:\BitLocker_Backup.log" -Append
             }
         }
     }
