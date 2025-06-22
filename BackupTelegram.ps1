@@ -1,4 +1,6 @@
-﻿# ===============================
+Write-Output "Inizio..."
+ 
+# ===============================
 # Script: BackupTelegram.ps1
 # Scopo: Controlla esito backup Windows e invia notifica Telegram
 # Orario previsto di esecuzione: ogni giorno alle 21:30
