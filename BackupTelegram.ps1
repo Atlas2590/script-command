@@ -7,8 +7,8 @@ Write-Output "Inizio..."
 # ===============================
 
 # === CONFIGURAZIONE ===
-$telegramToken = "7317642174:AAECJHsKu3WYFBm8H2IJygIDEjOjnbdHL3U"
-$chatId = "363508857"
+$telegramToken = "7542407879:AAHXjaj4OcZXZBaqXYfOl_wYXGIhIQxqjbM"
+$chatId = "-1002864412111"
 
 # === DATA ===
 $dataCorrente = Get-Date
