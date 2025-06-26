@@ -8,7 +8,9 @@ Write-Output "Inizio..."
 
 # === CONFIGURAZIONE ===
 $telegramToken = "7542407879:AAHXjaj4OcZXZBaqXYfOl_wYXGIhIQxqjbM"
-$chatId = "363508857"
+$chatId = "-1002864412111"
+$threadId = "363508857"  # Sostituisci con il vero ID del topic
+
 
 # === DATA ===
 $dataCorrente = Get-Date
@@ -38,7 +40,8 @@ $stato
 
 # === INVIO NOTIFICA TELEGRAM ===
 $messaggioEncoded = [System.Net.WebUtility]::UrlEncode($messaggio)
-$telegramUrl = "https://api.telegram.org/bot$telegramToken/sendMessage?chat_id=$chatId&text=$messaggioEncoded&parse_mode=Markdown"
+$telegramUrl = "https://api.telegram.org/bot$telegramToken/sendMessage?chat_id=$chatId&message_thread_id=$threadId&text=$messaggioEncoded&parse_mode=Markdown"
+
 
 try {
     Invoke-RestMethod -Uri $telegramUrl -Method Get | Out-Null
