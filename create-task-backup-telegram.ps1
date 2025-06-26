@@ -1,7 +1,8 @@
-﻿# === CONFIGURAZIONE ===
+
 $scriptURL = "https://raw.githubusercontent.com/Atlas2590/script-command/refs/heads/main/BackupTelegram.ps1"
 $scriptPath = "$env:ProgramData\BackupNotify\backup-telegram.ps1"
 $taskName = "BackupTelegramNotify"
+﻿# === CONFIGURAZIONE ===
 
 # === CREA CARTELLA E SCARICA LO SCRIPT ===
 New-Item -ItemType Directory -Path (Split-Path $scriptPath) -Force | Out-Null
