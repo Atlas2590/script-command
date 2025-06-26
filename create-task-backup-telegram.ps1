@@ -1,4 +1,3 @@
-
 $scriptURL = "https://raw.githubusercontent.com/Atlas2590/script-command/refs/heads/main/BackupTelegram.ps1"
 $scriptPath = "$env:ProgramData\BackupNotify\backup-telegram.ps1"
 $taskName = "BackupTelegramNotify"
