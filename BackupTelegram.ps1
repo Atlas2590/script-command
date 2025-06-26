@@ -9,7 +9,7 @@ Write-Output "Inizio..."
 # === CONFIGURAZIONE ===
 $telegramToken = "7542407879:AAHXjaj4OcZXZBaqXYfOl_wYXGIhIQxqjbM"
 $chatId = "-1002864412111"
-$threadId = "363508857"  # Sostituisci con il vero ID del topic
+$threadId = "4"  # Sostituisci con il vero ID del topic
 
 
 # === DATA ===
