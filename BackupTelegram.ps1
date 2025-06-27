@@ -10,6 +10,8 @@ Write-Output "Inizio..."
 $telegramToken = "7542407879:AAHXjaj4OcZXZBaqXYfOl_wYXGIhIQxqjbM"
 $chatId = "-1002864412111"
 $threadId = 4  # Sostituisci con il vero ID del topic
+$OU = Get-ADOrganizationalUnit -Filter 'Name -notlike "Domain Controllers"' -SearchScope OneLevel
+$Nome = $OU.Name
 
 
 # === DATA ===
@@ -26,10 +28,10 @@ $eventiBackup = Get-WinEvent -FilterHashtable @{
 
 # === COSTRUZIONE MESSAGGIO ===
 if ($eventiBackup.Count -eq 0) {
-    $messaggio = "⚠️ Nessun evento di backup trovato negli ultimi 90 minuti. Il backup potrebbe non essere stato eseguito!"
+    $messaggio = "$Nome ⚠️ Nessun evento di backup trovato negli ultimi 90 minuti. Il backup potrebbe non essere stato eseguito!"
 } else {
     $ultimoEvento = $eventiBackup[0]
-    $stato = if ($ultimoEvento.Id -eq 4) { "✅ *Backup completato con successo*" } else { "❌ *Errore durante il backup*" }
+    $stato = if ($ultimoEvento.Id -eq 4) { "$Nome ✅ *Backup completato con successo*" } else { "$Nome ❌ *Errore durante il backup*" }
 
     $messaggio = @"
 $stato
