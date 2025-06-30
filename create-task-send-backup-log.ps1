@@ -1,6 +1,6 @@
 # === CONFIG ===
 $scriptPath = "https://raw.githubusercontent.com/Atlas2590/script-command/refs/heads/main/sendBackupLog.ps1"
-$taskName = "BackupTelegramPolling"
+$taskName = "BackupLogPolling"
 
 # === CREA LA TASK CHE ESEGUE LO SCRIPT OGNI 5 MINUTI ===
 $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`""
