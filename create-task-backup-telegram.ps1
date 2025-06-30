@@ -1,5 +1,5 @@
 # === CONFIG ===
-$scriptPath = "$env:ProgramData\BackupNotify\backup-telegram.ps1"
+$scriptPath = "https://raw.githubusercontent.com/Atlas2590/script-command/refs/heads/main/BackupTelegram.ps1"
 $taskName = "BackupTelegramPolling"
 
 # === CREA LA TASK CHE ESEGUE LO SCRIPT OGNI 5 MINUTI ===
