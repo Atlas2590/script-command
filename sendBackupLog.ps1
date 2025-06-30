@@ -22,13 +22,22 @@ if ($eventi.Count -eq 0) {
     $status = "Nessun backup"
     $msg = "Nessun evento di backup trovato nelle ultime 24h"
     $event_time = (Get-Date).ToString("s")
-    $eventoUnico = "NoEvent_$event_time"
+    $eventoUnico = "NoEvent"
 } else {
     $ultimo = $eventi[0]
     $status = if ($ultimo.Id -eq 4) { "Successo" } else { "Errore" }
+    
     $msg = $ultimo.Message.Substring(0, [Math]::Min(300, $ultimo.Message.Length))
     $event_time = $ultimo.TimeCreated.ToString("s")
-    $eventoUnico = "$($ultimo.Id)_$($ultimo.TimeCreated.ToString('yyyyMMddHHmmss'))"
+
+    # Hash semplice per identificare se messaggio è lo stesso
+    $hash = [System.BitConverter]::ToString(
+        (New-Object -TypeName System.Security.Cryptography.SHA256Managed).ComputeHash(
+            [System.Text.Encoding]::UTF8.GetBytes($msg)
+        )
+    ) -replace "-", ""
+
+    $eventoUnico = "$($ultimo.Id)_$($ultimo.TimeCreated.ToString('yyyyMMddHHmmss'))_$hash"
 }
 
 # Leggi ultimo evento inviato
@@ -53,7 +62,6 @@ $body = @{
 try {
     Invoke-RestMethod -Method Post -Uri "https://atlas54.altervista.org/backup-monitor/log.php" -Body $body -ContentType "application/json"
     Write-Host "✅ Dati inviati con successo."
-    # Aggiorna file di stato solo se invio OK
     $eventoUnico | Out-File -FilePath $statoFile -Encoding ascii -Force
 } catch {
     Write-Warning "❌ Errore nell'invio dei dati: $_"
