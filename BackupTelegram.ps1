@@ -73,7 +73,7 @@ if ($eventoUnico -eq $ultimoEventoNotificato) {
 
 # === COSTRUZIONE MESSAGGIO ===
 if ($eventiBackup.Count -eq 0) {
-    $messaggio = "$Nome ⚠️ <b>Nessun evento di backup trovato negli ultimi 90 minuti</b>. Il backup potrebbe non essere stato eseguito!"
+    $messaggio = "$Nome ⚠️ <b>Nessun evento di backup trovato nelle ultime 12 ore</b>. Il backup potrebbe non essere stato eseguito!"
 } else {
     $stato = if ($ultimoEvento.Id -eq 4) {
         "$Nome ✅ <b>Backup completato con successo</b>"
