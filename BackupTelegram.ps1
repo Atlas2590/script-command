@@ -24,7 +24,7 @@ $Nome = $OU.Name
 
 # === DATA ===
 $dataCorrente = Get-Date
-$dataInizio = $dataCorrente.AddMinutes(-90) # Considera gli ultimi 90 minuti
+$dataInizio = $dataCorrente.AddMinutes(-720) # Considera gli ultimi 720 minuti, 12 ore
 
 # === DEBUG PRIMA DELLA RICERCA ===
 Write-Host "DEBUG - Cercando eventi da: $dataInizio"
